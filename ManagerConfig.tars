@@ -1,0 +1,27 @@
+module SanXiangBank
+{
+	struct Config{
+		0 optional int id;
+		1 optional string name;
+		2 optional int rlevel;
+		3 optional int rwork;
+		4 optional int rage;
+		5 optional bool rpromise;
+	};
+	interface ManagerConfig
+	{
+	    bool CreateConfig(Config cfg);
+		bool FindAllConfig(out vector<Config> cfg);
+		bool FindConfigByID(int id,out Config cfg);
+		bool UpdateConfig(Config cfg);
+		bool DelConfigByID(int id);
+	};
+};
+
+
+
+// CreateConfig(config *model.RequireConfig)error
+// FindAllConfig()(error,[]model.RequireConfig)
+// FindConfigByID(id int64)(error,model.RequireConfig)
+// UpdateConfig(cfg model.RequireConfig)(error)
+// DelConfigByID(id int64)error
